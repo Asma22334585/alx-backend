@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" LRU caching """
+""" LRU Caching """
 BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """LRUCache"""
+    """class LRU"""
 
     def __init__(self):
         """init method"""
@@ -12,7 +12,7 @@ class LRUCache(BaseCaching):
         self.order = []
 
     def put(self, key, item):
-        """tem value for the key key"""
+        """item value for the key key"""
         if key and item:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discard = self.order.pop(0)
@@ -22,7 +22,7 @@ class LRUCache(BaseCaching):
             self.order.append(key)
 
     def get(self, key):
-        """value in self.cache_data linked to key"""
+        """self.cache_data linked to key"""
         if key in self.cache_data:
             self.order.remove(key)
             self.order.append(key)
