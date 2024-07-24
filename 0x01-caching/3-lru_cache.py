@@ -18,8 +18,8 @@ class LRUCache(BaseCaching):
                 discard = self.order.pop(0)
                 self.cache_data.pop(discard)
                 print("DISCARD: {}".format(discard))
-            self.cache_data[key] = item
             self.order.append(key)
+            self.cache_data[key] = item
 
     def get(self, key):
         """self.cache_data linked to key"""
