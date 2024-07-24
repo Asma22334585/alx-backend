@@ -13,7 +13,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """tem value for the key key"""
         if key and item:
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discard = next(iter(self.cache_data))
                 self.cache_data.pop(discard)
                 print("DISCARD: {}".format(discard))
