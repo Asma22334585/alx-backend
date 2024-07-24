@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""" LIFO caching """
+""" LIFO Caching """
 BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """LIFO"""
+    """class LIFO"""
 
     def __init__(self):
         """init method"""
         super().__init__()
 
     def put(self, key, item):
-        """tem value for the key key"""
+        """item value for the key key"""
         if key and item:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discard = list(self.cache_data.keys())[-1]
@@ -20,5 +20,5 @@ class LIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """value in self.cache_data linked to key"""
+        """self.cache_data linked to key"""
         return self.cache_data.get(key)
