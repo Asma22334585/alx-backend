@@ -18,12 +18,12 @@ class LRUCache(BaseCaching):
                 discard = self.order.pop(0)
                 self.cache_data.pop(discard)
                 print("DISCARD: {}".format(discard))
-            self.order.append(key)
             self.cache_data[key] = item
+            self.order.append(key)
 
     def get(self, key):
         """self.cache_data linked to key"""
         if key in self.cache_data:
             self.order.remove(key)
             self.order.append(key)
-            return self.cache_data.get(key, None)
+            return self.cache_data.get(key)
