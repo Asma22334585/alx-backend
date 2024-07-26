@@ -4,15 +4,15 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LFUCache(BaseCaching):
-    """class LFU"""
+    """ class LFU """
 
     def __init__(self):
-        """init method """
+        """ init method """
         super().__init__()
         self.frequency = {}
 
     def put(self, key, item):
-        """item value for the key key"""
+        """ item value for the key key """
         if key is None or item is None:
             return
 
@@ -34,7 +34,7 @@ class LFUCache(BaseCaching):
             self.frequency[key] = 1
 
     def get(self, key):
-        """self.cache_data linked to key"""
+        """ self.cache_data linked to key """
         if key in self.cache_data:
             self.frequency[key] += 1
             return self.cache_data.get(key)
