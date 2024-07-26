@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-""" LRU Caching """
+""" MRU Caching """
 
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
-    """ class LRU """
+class MRUCache(BaseCaching):
+    """ class MRU """
     def __init__(self):
-        """ Init method """
+        """ inith method """
         super().__init__()
         self.order = []
 
