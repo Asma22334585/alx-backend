@@ -4,14 +4,14 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """FIFO"""
+    """class FIFO"""
 
     def __init__(self):
         """init method"""
         super().__init__()
 
     def put(self, key, item):
-        """tem value for the key key"""
+        """item value for the key key"""
         if key and item:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discard = next(iter(self.cache_data))
@@ -20,5 +20,5 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """value in self.cache_data linked to key"""
+        """self.cache_data linked to key"""
         return self.cache_data.get(key)
